@@ -314,3 +314,117 @@ footer p {
 .faq-item.active .faq-answer {
     max-height: 200px; /* Chiều cao tối đa cho câu trả lời, có thể điều chỉnh */
 }
+/* --- Thay thế toàn bộ khối CSS cho DRS Feature bằng khối này --- */
+
+/* --- DRS FEATURE SECTION --- */
+#drs-feature {
+    background-color: #f4f8ff; /* Thay đổi màu nền một chút cho dịu mắt */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#drs-feature .section-subtitle {
+    max-width: 750px;
+    margin: -20px auto 50px auto;
+    font-size: 1.15em;
+    color: var(--secondary-color);
+}
+
+.drs-content-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 4fr; /* Tỉ lệ cho phần giải thích lớn hơn */
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.drs-explanation h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.drs-explanation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drs-explanation ul li {
+    margin-bottom: 25px; /* Tăng khoảng cách giữa các mục */
+    display: flex;
+    align-items: flex-start;
+}
+
+.drs-explanation ul li i {
+    color: var(--primary-color); /* Đổi màu icon cho đồng bộ */
+    font-size: 1.5em; /* Icon to hơn */
+    margin-right: 15px;
+    margin-top: 5px;
+    width: 30px; /* Cố định chiều rộng cho icon */
+    text-align: center;
+}
+
+.drs-explanation ul li div strong {
+    font-size: 1.2em; /* Tăng cỡ chữ cho tiêu đề của mỗi mục */
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 3px;
+}
+
+.drs-explanation ul li div p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.receipt-mockup {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: var(--card-shadow);
+}
+
+.receipt-mockup h4 {
+    text-align: center;
+    margin-top: 0;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.receipt-item.drs-item .item-name {
+    font-style: italic;
+    color: var(--primary-color);
+    padding-left: 15px;
+}
+
+.receipt-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 900px) {
+    .drs-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .receipt-mockup {
+        margin-top: 40px;
+    }
+}
