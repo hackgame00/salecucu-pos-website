@@ -30,7 +30,6 @@
 					<h3>Hỗ trợ Đa Ngôn ngữ</h3>
 					<p>Phá vỡ rào cản ngôn ngữ. SaleCuCu POS được thiết kế để hoạt động với giao diện <strong>Tiếng Việt</strong> và <strong>Tiếng Hungary</strong>, giúp nhân viên của bạn ở nhiều quốc gia khác nhau có thể sử dụng một cách dễ dàng và tự nhiên.</p>
 				</div>
-
 				<div class="feature-card">
 					<i class="fas fa-network-wired"></i>
 					<h3>Hoạt động Mạng LAN & Đa người dùng</h3>
@@ -137,18 +136,12 @@
 		</section>
 
         <section id="screenshots" class="container">
-             <h2>Giao Diện Trực Quan</h2>
-             <div class="screenshots-grid">
-                <div class="screenshot-placeholder">
-                    <p>Chèn ảnh chụp màn hình Giao diện Bán hàng ở đây</p>
-                </div>
-                <div class="screenshot-placeholder">
-                    <p>Chèn ảnh chụp màn hình Báo cáo Hạn sử dụng ở đây</p>
-                </div>
-                <div class="screenshot-placeholder">
-                    <p>Chèn ảnh chụp màn hình cửa sổ Quản lý Sản phẩm ở đây</p>
-                </div>
-             </div>
+            <h2>Giao Diện Trực Quan</h2>
+            <div class="screenshots-grid">
+				<img src="images/giao-dien-ban-hang.png" alt="Giao diện bán hàng SaleCuCu POS">
+				<img src="images/bao-cao-hsd.png" alt="Báo cáo hạn sử dụng chi tiết">
+				<img src="images/quan-ly-san-pham.png" alt="Cửa sổ quản lý sản phẩm">
+			</div>
         </section>
 
         <section id="activation" class="container">
@@ -260,30 +253,52 @@
         </div>
     </footer>
 
-<script>
-    const faqItems = document.querySelectorAll('.faq-item');
+    <div id="lightbox" class="lightbox">
+        <span class="close-button">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            // Kiểm tra xem câu hỏi này có đang active không
-            const isActive = item.classList.contains('active');
-            
-            // Luôn đóng tất cả các câu hỏi khác trước
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
+    <script>
+        // MÃ JAVASCRIPT CHO PHẦN FAQ
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
+        });
 
-            // Nếu câu hỏi này chưa active, hãy bật nó lên.
-            // Nếu đã active, thao tác ở trên đã đóng nó lại rồi, nên ta chỉ cần bật lại nếu cần.
-            if (!isActive) {
-                item.classList.add('active');
+        // MÃ JAVASCRIPT CHO PHẦN LIGHTBOX (XEM ẢNH)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryImages = document.querySelectorAll('.screenshots-grid img');
+        const closeBtn = document.querySelector('.close-button');
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = image.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
             }
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>

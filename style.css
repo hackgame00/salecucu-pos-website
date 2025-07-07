@@ -153,17 +153,126 @@ h2::after {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-.screenshot-placeholder {
-    background-color: #e9ecef;
-    border: 2px dashed #ced4da;
+
+/* --- MÃ SỬA LỖI ẢNH ĐỒNG ĐỀU VÀ CHỒNG CHÉO --- */
+.screenshots-grid img {
+    width: 100%;
+    height: 250px; /* Cố định chiều cao của ô chứa ảnh */
+    object-fit: cover; /* Quan trọng: Cắt ảnh để vừa ô mà không bị méo */
+    display: block; 
     border-radius: 8px;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Biến con trỏ thành hình bàn tay khi di qua */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.screenshots-grid img:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi di chuột */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- DRS FEATURE SECTION --- */
+#drs-feature {
+    background-color: #f4f8ff; 
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#drs-feature .section-subtitle {
+    max-width: 750px;
+    margin: -20px auto 50px auto;
+    font-size: 1.15em;
     color: var(--secondary-color);
+}
+
+.drs-content-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 4fr; 
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.drs-explanation h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.drs-explanation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drs-explanation ul li {
+    margin-bottom: 25px; 
+    display: flex;
+    align-items: flex-start;
+}
+
+.drs-explanation ul li i {
+    color: var(--primary-color); 
+    font-size: 1.5em;
+    margin-right: 15px;
+    margin-top: 5px;
+    width: 30px; 
+    text-align: center;
+}
+
+.drs-explanation ul li div strong {
+    font-size: 1.2em;
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 3px;
+}
+
+.drs-explanation ul li div p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.receipt-mockup {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: var(--card-shadow);
+}
+
+.receipt-mockup h4 {
+    text-align: center;
+    margin-top: 0;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.receipt-item.drs-item .item-name {
     font-style: italic;
-    font-size: 1.1em;
+    color: var(--primary-color);
+    padding-left: 15px;
+}
+
+.receipt-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 /* --- ACTIVATION SECTION --- */
@@ -188,56 +297,6 @@ h2::after {
     margin-top: 0;
 }
 
-.cta-button.large {
-    padding: 18px 40px;
-    font-size: 1.2em;
-}
-
-/* --- DOWNLOAD SECTION --- */
-.download-section {
-    background-color: var(--heading-color);
-    color: white;
-}
-.download-section h2, .download-section p {
-    color: white;
-}
-.cta-button.massive {
-    padding: 20px 50px;
-    font-size: 1.4em;
-    margin-top: 20px;
-}
-.cta-button.massive i {
-    margin-right: 10px;
-}
-
-
-/* --- FOOTER --- */
-footer {
-    background-color: var(--text-color);
-    color: #ccc;
-    padding: 40px 20px;
-    text-align: center;
-}
-footer h3 {
-    color: white;
-}
-footer p {
-    color: #ccc;
-    margin-bottom: 5px;
-}
-.copyright {
-    margin-top: 20px;
-    font-size: 0.9em;
-    opacity: 0.7;
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-    h2 { font-size: 2em; }
-    .hero-content h1 { font-size: 2.8em; }
-    .hero-content .subtitle { font-size: 1.2em; }
-}
-/* --- Thêm vào cuối file style.css --- */
 .license-model {
     max-width: 700px;
     margin: 40px auto 0 auto;
@@ -258,7 +317,11 @@ footer p {
 .license-model p {
     margin-bottom: 8px;
 }
-/* --- Thêm vào cuối file style.css --- */
+
+.cta-button.large {
+    padding: 18px 40px;
+    font-size: 1.2em;
+}
 
 /* --- FAQ SECTION --- */
 #faq {
@@ -314,112 +377,89 @@ footer p {
 .faq-item.active .faq-answer {
     max-height: 200px; /* Chiều cao tối đa cho câu trả lời, có thể điều chỉnh */
 }
-/* --- Thay thế toàn bộ khối CSS cho DRS Feature bằng khối này --- */
 
-/* --- DRS FEATURE SECTION --- */
-#drs-feature {
-    background-color: #f4f8ff; /* Thay đổi màu nền một chút cho dịu mắt */
-    padding-top: 80px;
-    padding-bottom: 80px;
+/* --- DOWNLOAD SECTION --- */
+.download-section {
+    background-color: var(--heading-color);
+    color: white;
+}
+.download-section h2, .download-section p {
+    color: white;
+}
+.cta-button.massive {
+    padding: 20px 50px;
+    font-size: 1.4em;
+    margin-top: 20px;
+}
+.cta-button.massive i {
+    margin-right: 10px;
 }
 
-#drs-feature .section-subtitle {
-    max-width: 750px;
-    margin: -20px auto 50px auto;
-    font-size: 1.15em;
-    color: var(--secondary-color);
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--text-color);
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer h3 {
+    color: white;
+}
+footer p {
+    color: #ccc;
+    margin-bottom: 5px;
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+    opacity: 0.7;
 }
 
-.drs-content-wrapper {
-    display: grid;
-    grid-template-columns: 5fr 4fr; /* Tỉ lệ cho phần giải thích lớn hơn */
-    gap: 50px;
+
+/* --- CSS CHO LIGHTBOX --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
     align-items: center;
-    text-align: left;
 }
 
-.drs-explanation h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 1.6em;
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 5px;
+    animation: zoomIn 0.3s ease;
 }
 
-.drs-explanation ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+@keyframes zoomIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
 }
 
-.drs-explanation ul li {
-    margin-bottom: 25px; /* Tăng khoảng cách giữa các mục */
-    display: flex;
-    align-items: flex-start;
-}
-
-.drs-explanation ul li i {
-    color: var(--primary-color); /* Đổi màu icon cho đồng bộ */
-    font-size: 1.5em; /* Icon to hơn */
-    margin-right: 15px;
-    margin-top: 5px;
-    width: 30px; /* Cố định chiều rộng cho icon */
-    text-align: center;
-}
-
-.drs-explanation ul li div strong {
-    font-size: 1.2em; /* Tăng cỡ chữ cho tiêu đề của mỗi mục */
-    color: var(--heading-color);
-    display: block;
-    margin-bottom: 3px;
-}
-
-.drs-explanation ul li div p {
-    margin: 0;
-    font-size: 1em;
-    color: var(--text-color);
-}
-
-.receipt-mockup {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    box-shadow: var(--card-shadow);
-}
-
-.receipt-mockup h4 {
-    text-align: center;
-    margin-top: 0;
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.receipt-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 0.95em;
-}
-
-.receipt-item.drs-item .item-name {
-    font-style: italic;
-    color: var(--primary-color);
-    padding-left: 15px;
-}
-
-.receipt-total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #333;
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
     font-weight: bold;
-    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* Responsive cho màn hình nhỏ */
+.close-button:hover {
+    color: #bbb;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 900px) {
     .drs-content-wrapper {
         grid-template-columns: 1fr;
@@ -427,4 +467,10 @@ footer p {
     .receipt-mockup {
         margin-top: 40px;
     }
+}
+
+@media (max-width: 768px) {
+    h2 { font-size: 2em; }
+    .hero-content h1 { font-size: 2.8em; }
+    .hero-content .subtitle { font-size: 1.2em; }
 }
