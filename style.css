@@ -258,3 +258,59 @@ footer p {
 .license-model p {
     margin-bottom: 8px;
 }
+/* --- Thêm vào cuối file style.css --- */
+
+/* --- FAQ SECTION --- */
+#faq {
+    background-color: var(--light-bg);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--heading-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    font-size: 0.9em;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.faq-answer p {
+    padding: 0 10px 20px 10px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Chiều cao tối đa cho câu trả lời, có thể điều chỉnh */
+}

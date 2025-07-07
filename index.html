@@ -109,6 +109,61 @@
 
 			<a href="#contact" class="cta-button primary large">Liên Hệ Mua Bản Quyền Ngay</a>
 		</section>
+		
+		<section id="faq" class="container">
+			<h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+			<div class="faq-container">
+				<div class="faq-item">
+					<button class="faq-question">
+						<span>Phần mềm này yêu cầu cấu hình máy tính như thế nào?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+					<div class="faq-answer">
+						<p>SaleCuCu POS được thiết kế để hoạt động nhẹ nhàng trên máy tính chạy hệ điều hành Windows (Windows 10, 11). Chương trình không yêu cầu cấu hình phần cứng cao.</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<button class="faq-question">
+						<span>Đây là phí trả một lần hay phải trả hàng tháng?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+					<div class="faq-answer">
+						<p>Đây là phí thanh toán <strong>một lần duy nhất</strong>. Bạn mua một lần và sở hữu bản quyền phần mềm vĩnh viễn cho một máy tính, không có bất kỳ chi phí duy trì hàng tháng hay hàng năm nào khác.</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<button class="faq-question">
+						<span>Nếu tôi đổi hoặc cài lại máy tính, tôi có dùng lại được bản quyền không?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+					<div class="faq-answer">
+						<p>Bản quyền được cấp theo "Mã máy" (Machine ID) duy nhất của mỗi máy tính. Do đó, nếu bạn thay đổi máy tính hoặc cài đặt lại Windows dẫn đến thay đổi Mã máy, bạn sẽ cần liên hệ để mua một khóa bản quyền mới. Chúng tôi có chính sách hỗ trợ giá tốt cho khách hàng cũ mua lại bản quyền.</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<button class="faq-question">
+						<span>Dữ liệu bán hàng của tôi có được an toàn không?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+					<div class="faq-answer">
+						<p>Rất an toàn. Toàn bộ dữ liệu sản phẩm và bán hàng của bạn được lưu trữ trực tiếp trên máy tính của chính bạn, không ai khác có thể truy cập được. Ngoài ra, chương trình còn có chức năng "Sao lưu & Khôi phục" để bạn tự tạo các bản sao lưu dữ liệu một cách an toàn.</p>
+					</div>
+				</div>
+				
+				<div class="faq-item">
+					<button class="faq-question">
+						<span>Tôi có nhận được hỗ trợ nếu gặp vấn đề không?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+					<div class="faq-answer">
+						<p>Chắc chắn có. Chúng tôi hỗ trợ kỹ thuật cho tất cả khách hàng đã mua bản quyền. Bạn có thể liên hệ trực tiếp qua Email hoặc Số điện thoại/Zalo được cung cấp ở cuối trang web.</p>
+					</div>
+				</div>
+			</div>
+		</section>
         
         <section id="download" class="container download-section">
             <h2>Bắt Đầu Ngay Hôm Nay</h2>
@@ -126,6 +181,31 @@
             <p class="copyright">&copy; 2024-2025 SaleCuCu POS. Mọi quyền được bảo lưu.</p>
         </div>
     </footer>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Kiểm tra xem câu hỏi này có đang active không
+            const isActive = item.classList.contains('active');
+            
+            // Luôn đóng tất cả các câu hỏi khác trước
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Nếu câu hỏi này chưa active, hãy bật nó lên.
+            // Nếu đã active, thao tác ở trên đã đóng nó lại rồi, nên ta chỉ cần bật lại nếu cần.
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
